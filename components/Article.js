@@ -114,3 +114,61 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+/* 
+<div class="article">
+  <h2>{title of the article}</h2>
+  <p class="date">{date of the article}</p>
+
+  {three separate paragraph elements}
+
+  <span class="expandButton">+</span>
+</div> */
+
+
+function articleMaker({title,date, firstParagraph, secondParagraph, thirdParagraph}){
+  //creating the element
+  const article = document.createElement('div')
+  const titleb = document.createElement('h2')
+  const dateb = document.createElement('p')
+  const firstParagraphb = document.createElement('p')
+  const secondParagraphb = document.createElement('p')
+  const thirdParagraphb = document.createElement('p')
+  const expandButton = document.createElement('span')
+  //creating hierarchy
+  article.appendChild(titleb)
+  article.appendChild(dateb)
+  article.appendChild(firstParagraphb)
+  article.appendChild(secondParagraphb)
+  article.appendChild(thirdParagraphb)
+  article.appendChild(expandButton)
+  //Assigning class names to the elements
+  article.classList.add('article', 'article-open')
+  dateb.classList.add('date')
+  expandButton.classList.add('expandButton')
+
+  //set text content using arguments as raw materials
+  titleb.textContent = title
+  dateb.textContent = date
+  firstParagraphb.textContent = firstParagraph
+  secondParagraphb.textContent = secondParagraph
+  thirdParagraphb.textContent = thirdParagraph
+  expandButton.textContent = '+';
+  // including the event listner
+  
+  expandButton.addEventListener('click', event =>{ 
+    article.classList.toggle('article-open')
+    
+  })
+// returning the article
+return article;
+}
+
+
+const articles = document.querySelector('.articles')
+//since there are mulitple objects in the array we need to loop through the array and create new components for each article
+
+data.forEach(article => {
+  const newArticle = articleMaker(article)
+  articles.appendChild(newArticle)
+})
+
