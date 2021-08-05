@@ -74,18 +74,6 @@ function menuMaker(menuItem){
  return menu;
 }
 
-// menuItems.forEach( menu => {
-//   const addmenu = menuMaker(menu)
-
-//   return addmenu;
-// })
-
-
   const newMenu = menuMaker(menuItems);
 
   document.querySelector('.header').appendChild(newMenu);
-
-//map throuhg list item 
-//hard code the list items 6 total
-//append to the header by using document query
-//dont loop 
