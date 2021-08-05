@@ -35,22 +35,57 @@ function menuMaker(menuItem){
   //creating the elements
   const menu = document.createElement('div')
   const list = document.createElement('ul')
-  const lists = document.createElement('li')
+
+  const student = document.createElement('li')
+  const faculty = document.createElement('li')
+  const whatsNew = document.createElement('li')
+  const techTrend = document.createElement('li')
+  const music  = document.createElement('li')
+  const logout = document.createElement('li')
+
   //setting the hierarchy
-  menu.appendChild('list')
-  list.appendChild('lists')
+  menu.appendChild(list)
+
+  list.appendChild(student)
+  list.appendChild(faculty)
+  list.appendChild(whatsNew)
+  list.appendChild(techTrend)
+  list.appendChild(music)
+  list.appendChild(logout)
+  
   //nameing the class
   menu.classList.add('menu')
-  lists.textContent = menuItem
+  
+  //setting values to the list items
+  student.textContent = menuItems[0]
+  faculty.textContent = menuItems[1]
+  whatsNew.textContent = menuItems[2]
+  techTrend.textContent = menuItems[3]
+  music.textContent = menuItems[4]
+  logout.textContent = menuItems[5]
 
-//  menuButton.addEventListener('click', event => {
-//    menu-button.classList.toggle('menu--open')
-//  })
-  return menu;
+  // lists.textContent = menuItem
+  const menuButton = document.querySelector('.menu-button')
+  //event listener
+  menuButton.addEventListener('click', event => {
+   menu.classList.toggle('menu--open')
+ })
+  
+ return menu;
 }
 
-menuItems.forEach( menu => {
-  const addmenu = menuMaker(menu)
+// menuItems.forEach( menu => {
+//   const addmenu = menuMaker(menu)
 
-  return addmenu;
-})
+//   return addmenu;
+// })
+
+
+  const newMenu = menuMaker(menuItems);
+
+  document.querySelector('.header').appendChild(newMenu);
+
+//map throuhg list item 
+//hard code the list items 6 total
+//append to the header by using document query
+//dont loop 
